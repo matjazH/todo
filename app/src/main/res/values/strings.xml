@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">X先生</string>
+    <string name="action_settings">设置</string>
+    <!-- Splash -->
+    <string name="splash_time_tips">%1$ds</string>
+    <string name="splash_slogan">让我们做了X先生</string>
+
+    <!-- Main -->
+    <string name="no_tasks_all">没有任务</string>
+    <string name="no_tasks_active">没有需要做的任务</string>
+    <string name="no_tasks_completed">没有已完成的任务</string>
+    <string name="no_tasks_add">点击 + 添加任务</string>
+
+    <!-- Edit Task -->
+    <string name="title_hint">标题</string>
+    <string name="description_hint">在这里添加内容</string>
+</resources>
