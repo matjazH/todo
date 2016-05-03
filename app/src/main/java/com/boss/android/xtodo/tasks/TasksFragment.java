@@ -21,6 +21,11 @@ import com.boss.android.xtodo.data.Task;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.Unbinder;
+
 import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
@@ -28,19 +33,29 @@ import static com.google.common.base.Preconditions.checkNotNull;
  */
 public class TasksFragment extends BaseFragment implements TasksContract.View {
 
+    private Unbinder mUnbinder;
+
     private TasksContract.Presenter mPresenter;
 
     private TasksAdapter mTasksAdapter;
 
-    private View mTasksView;
+    @BindView(R.id.tasks_list)
+    ListView mListView;
 
-    private View mNoTaskView;
+    @BindView(R.id.tasksLL)
+    View mTasksView;
 
-    private ImageView mNoTaskIcon;
+    @BindView(R.id.noTasks)
+    View mNoTaskView;
 
-    private TextView mNoTaskMainView;
+    @BindView(R.id.noTasksIcon)
+    ImageView mNoTaskIcon;
 
-    private View mNoTaskAddView;
+    @BindView(R.id.noTasksMain)
+    TextView mNoTaskMainView;
+
+    @BindView(R.id.noTasksAdd)
+    View mNoTaskAddView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,24 +68,20 @@ public class TasksFragment extends BaseFragment implements TasksContract.View {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_tasks, container, false);
 
-        mTasksView = root.findViewById(R.id.tasksLL);
-        ListView listView = (ListView) root.findViewById(R.id.tasks_list);
-        listView.setAdapter(mTasksAdapter);
+        mUnbinder = ButterKnife.bind(this, root);
 
-        mNoTaskView = root.findViewById(R.id.noTasks);
-        mNoTaskIcon = (ImageView) root.findViewById(R.id.noTasksIcon);
-        mNoTaskMainView = (TextView) root.findViewById(R.id.noTasksMain);
-        mNoTaskAddView = root.findViewById(R.id.noTasksAdd);
-        mNoTaskAddView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                addTask();
-            }
-        });
+        mListView.setAdapter(mTasksAdapter);
         return root;
     }
 
-    private void addTask() {
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mUnbinder.unbind();
+    }
+
+    @OnClick(R.id.noTasksAdd)
+    void addTask() {
         mPresenter.addTask();
     }
 

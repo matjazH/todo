@@ -10,7 +10,7 @@ public class BaseApplication extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
-        initCrashReport();
+        init();
     }
 
     @Override
@@ -26,6 +26,12 @@ public class BaseApplication extends Application{
     @Override
     public void onTrimMemory(int level) {
         super.onTrimMemory(level);
+    }
+
+    private void init() {
+        Settings.getInstance().init(this);
+        StorageManager.getInstance().init(this);
+        initCrashReport();
     }
 
     private void initCrashReport() {

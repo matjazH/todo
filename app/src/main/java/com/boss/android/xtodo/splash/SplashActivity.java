@@ -7,6 +7,8 @@ import com.boss.android.xtodo.R;
 import com.boss.android.xtodo.base.BaseActivity;
 import com.boss.android.xtodo.util.ActivityUtils;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by boss on 2016/4/24.
  */

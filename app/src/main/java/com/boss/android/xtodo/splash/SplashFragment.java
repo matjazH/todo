@@ -16,6 +16,11 @@ import com.boss.android.xtodo.R;
 import com.boss.android.xtodo.base.BaseFragment;
 import com.boss.android.xtodo.tasks.TasksActivity;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.Unbinder;
+
 import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
@@ -23,13 +28,18 @@ import static com.google.common.base.Preconditions.checkNotNull;
  */
 public class SplashFragment extends BaseFragment implements SplashContract.View {
 
+    private Unbinder mUnbinder;
+
     private SplashContract.Presenter mPresenter;
 
-    private ImageView mSplashBackground;
+    @BindView(R.id.iv_splash_background)
+    ImageView mSplashBackground;
 
-    private ImageView mSplashMain;
+    @BindView(R.id.iv_splash_main)
+    ImageView mSplashMain;
 
-    private TextView mSplashTimeTips;
+    @BindView(R.id.tv_splash_time_tips)
+    TextView mSplashTimeTips;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,26 +47,36 @@ public class SplashFragment extends BaseFragment implements SplashContract.View 
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        mPresenter.start();
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
-        mPresenter.start();
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_splash, container, false);
-        mSplashBackground = (ImageView) root.findViewById(R.id.iv_splash_background);
-        mSplashMain = (ImageView) root.findViewById(R.id.iv_splash_main);
-        mSplashTimeTips = (TextView) root.findViewById(R.id.tv_splash_time_tips);
-        mSplashTimeTips.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mPresenter.stopSplash();
-            }
-        });
+
+        mUnbinder = ButterKnife.bind(this, root);
         mPresenter.loadBackgroundResource();
+
         return root;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mUnbinder.unbind();
+    }
+
+    @OnClick(R.id.tv_splash_time_tips)
+    public void stopSplash() {
+        mPresenter.stopSplash();
     }
 
     @Override

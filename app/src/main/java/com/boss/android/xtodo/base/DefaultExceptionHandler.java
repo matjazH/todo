@@ -4,6 +4,8 @@ import android.content.Context;
 
 import com.boss.android.xtodo.util.FileUtils;
 
+import java.io.File;
+
 /**
  * Created by boss on 2016/4/24.
  */
@@ -43,7 +45,8 @@ public class DefaultExceptionHandler implements Thread.UncaughtExceptionHandler 
         }
 
         // TODO 写日志，并发送相关日志到服务器
-        String dir = Config.Dir.CRASH.getName();
+        String dir = new File(StorageManager.getInstance().getStorageDir(), Config.Dir.CRASH.getName()).getAbsolutePath();
+        
         String name = "crash_" + System.currentTimeMillis();
         FileUtils.createFile(dir, name, buffer.toString());
     }

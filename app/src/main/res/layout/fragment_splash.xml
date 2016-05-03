@@ -16,6 +16,7 @@
 
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -26,8 +27,8 @@
             android:id="@+id/iv_splash_background"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/bg_splash_default"
-            android:scaleType="fitCenter"/>
+            android:scaleType="fitXY"
+            tools:background="@drawable/bg_splash_default"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,8 +39,8 @@
                 android:id="@+id/iv_splash_main"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ic_splash_main_default"
-                android:scaleType="fitCenter"/>
+                android:scaleType="fitCenter"
+                android:background="@drawable/ic_splash_main_default"/>
             <TextView
                 android:id="@+id/tv_splash_slogan"
                 android:layout_width="wrap_content"

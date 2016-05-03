@@ -4,6 +4,12 @@ package com.boss.android.xtodo.base;
  * Created by boss on 2016/4/24.
  */
 public class Config {
+
+    private final static String PACKAGE_NAME = "com.boss.android.xtodo";
+
+    public final static String SP_CONFIG_NAME = "config";
+    public final static String SP_STORAGE_DIR = "storage_dir";
+
     public enum Dir {
         LOG("log"),
         CRASH("crash");
@@ -34,6 +40,4 @@ public class Config {
             return mEnable;
         }
     }
-
-
 }
