@@ -5,11 +5,17 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="list_item_padding">8dp</dimen>
 
+    <dimen name="common_margin">16dp</dimen>
+    <dimen name="common_padding">16dp</dimen>
+
     <dimen name="common_icon_width">32dp</dimen>
     <dimen name="common_icon_height">32dp</dimen>
 
     <!-- splash -->
     <dimen name="text_size_splash_slogan">30sp</dimen>
     <dimen name="splash_slogan_margin_top">32dp</dimen>
+
+    <!-- tasks -->
+    <dimen name="tasks_nav_header_height">124dp</dimen>
 
 </resources>

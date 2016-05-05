@@ -1,15 +1,19 @@
 <resources>
     <string name="app_name">X先生</string>
-    <string name="action_settings">设置</string>
     <!-- Splash -->
     <string name="splash_time_tips">%1$ds</string>
     <string name="splash_slogan">让我们做了X先生</string>
 
     <!-- Main -->
+    <string name="tasks_nav_header_title">X先生</string>
     <string name="no_tasks_all">没有任务</string>
     <string name="no_tasks_active">没有需要做的任务</string>
     <string name="no_tasks_completed">没有已完成的任务</string>
     <string name="no_tasks_add">点击 + 添加任务</string>
+    <string name="tasks_nav_menu_action_list">列表</string>
+    <string name="tasks_nav_menu_action_message">消息</string>
+    <string name="tasks_nav_menu_action_about">关于</string>
+    <string name="tasks_nav_menu_action_settings">设置</string>
 
     <!-- Edit Task -->
     <string name="title_hint">标题</string>

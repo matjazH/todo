@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context=".tasks.TasksActivity">
+    <item
+        android:id="@+id/action_list"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_tasks_menu_list"
+        android:title="@string/tasks_nav_menu_action_list" />
+    <item
+        android:id="@+id/action_message"
+        android:orderInCategory="101"
+        android:icon="@drawable/ic_tasks_menu_messages"
+        android:title="@string/tasks_nav_menu_action_message" />
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="102"
+        android:icon="@drawable/ic_tasks_menu_settings"
+        android:title="@string/tasks_nav_menu_action_settings" />
+    <item
+        android:id="@+id/action_about"
+        android:orderInCategory="103"
+        android:icon="@drawable/ic_tasks_menu_about"
+        android:title="@string/tasks_nav_menu_action_about" />
+</menu>
