@@ -3,8 +3,8 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context=".tasks.TasksActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/menu_action_settings"
         android:orderInCategory="100"
-        android:title="@string/tasks_nav_menu_action_settings"
+        android:title="@string/menu_tasks_nav_action_settings"
         app:showAsAction="never"/>
 </menu>

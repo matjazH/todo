@@ -10,12 +10,47 @@
     tools:context=".tasks.TasksActivity"
     tools:openDrawer="start">
 
-    <!-- 显示子控件内容 -->
-    <FrameLayout
-        android:id="@+id/contentFrame"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </FrameLayout>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="@style/AppTheme.AppBarOverlay"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/coordinatorLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- 显示子控件内容 -->
+            <FrameLayout
+                android:id="@+id/contentFrame"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_add_task"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                android:layout_gravity="bottom|right"
+                android:src="@drawable/ic_add"
+                app:fabSize="normal" />
+        </android.support.design.widget.CoordinatorLayout>
+
+    </LinearLayout>
 
     <!-- Navigation Drawer -->
     <android.support.design.widget.NavigationView

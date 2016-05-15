@@ -1,11 +1,17 @@
 package com.boss.android.xtodo.tasks;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.PopupMenu;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -17,6 +23,7 @@ import android.widget.TextView;
 import com.boss.android.xtodo.R;
 import com.boss.android.xtodo.base.BaseFragment;
 import com.boss.android.xtodo.data.Task;
+import com.boss.android.xtodo.edittask.EditTaskActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,6 +78,9 @@ public class TasksFragment extends BaseFragment implements TasksContract.View {
         mUnbinder = ButterKnife.bind(this, root);
 
         mListView.setAdapter(mTasksAdapter);
+
+        setHasOptionsMenu(true);
+
         return root;
     }
 
@@ -78,6 +88,26 @@ public class TasksFragment extends BaseFragment implements TasksContract.View {
     public void onDestroyView() {
         super.onDestroyView();
         mUnbinder.unbind();
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.tasks_fragment_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_filter:
+                showFilteringPopUpMenu();
+                break;
+            case R.id.menu_clear:
+                break;
+            case R.id.menu_refresh:
+                break;
+        }
+        return true;
     }
 
     @OnClick(R.id.noTasksAdd)
@@ -151,11 +181,43 @@ public class TasksFragment extends BaseFragment implements TasksContract.View {
 
     @Override
     public void showAddTask() {
+        Intent intent = new Intent(getActivity(), EditTaskActivity.class);
+        startActivity(intent);
     }
 
     @Override
     public void showEditTask(Task task) {
+        Intent intent = new Intent(getActivity(), EditTaskActivity.class);
+        startActivity(intent);
+    }
 
+    @Override
+    public void showFilteringPopUpMenu() {
+        Context context = getActivity();
+        View view = getActivity().findViewById(R.id.menu_filter);
+
+        checkNotNull(context);
+        checkNotNull(view);
+
+        PopupMenu popupMenu = new PopupMenu(context, view);
+
+        popupMenu.getMenuInflater().inflate(R.menu.tasks_filter_menu, popupMenu.getMenu());
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.menu_filter_all:
+                        break;
+                    case R.id.menu_filter_active:
+                        break;
+                    case R.id.menu_filter_completed:
+                        break;
+                }
+                return false;
+            }
+        });
+
+        popupMenu.show();
     }
 
     @Override

@@ -30,6 +30,7 @@ public class SplashFragment extends BaseFragment implements SplashContract.View 
 
     private Unbinder mUnbinder;
 
+    @Nullable
     private SplashContract.Presenter mPresenter;
 
     @BindView(R.id.iv_splash_background)
@@ -57,7 +58,6 @@ public class SplashFragment extends BaseFragment implements SplashContract.View 
         super.onResume();
     }
 
-    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_splash, container, false);

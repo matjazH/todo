@@ -1,10 +1,15 @@
 package com.boss.android.xtodo.tasks;
 
 import android.app.LoaderManager;
+import android.content.Context;
 import android.content.Loader;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.PopupMenu;
+import android.view.MenuItem;
+import android.view.View;
 
+import com.boss.android.xtodo.R;
 import com.boss.android.xtodo.data.Task;
 import com.boss.android.xtodo.data.source.TasksLoader;
 import com.boss.android.xtodo.data.source.TasksRepository;
@@ -104,6 +109,16 @@ public class TasksPresenter implements TasksContract.Presenter{
         } else {
             showFilteredTasks();
         }
+    }
+
+    @Override
+    public TasksFilterType getFiltering() {
+        return mCurrentFiltering;
+    }
+
+    @Override
+    public void setFiltering(TasksFilterType filterType) {
+        mCurrentFiltering = filterType;
     }
 
     private void showFilteredTasks() {

@@ -10,12 +10,23 @@
     <string name="no_tasks_active">没有需要做的任务</string>
     <string name="no_tasks_completed">没有已完成的任务</string>
     <string name="no_tasks_add">点击 + 添加任务</string>
-    <string name="tasks_nav_menu_action_list">列表</string>
-    <string name="tasks_nav_menu_action_message">消息</string>
-    <string name="tasks_nav_menu_action_about">关于</string>
-    <string name="tasks_nav_menu_action_settings">设置</string>
+
+    <string name="menu_tasks_nav_action_list">列表</string>
+    <string name="menu_tasks_nav_action_message">消息</string>
+    <string name="menu_tasks_nav_action_about">关于</string>
+    <string name="menu_tasks_nav_action_settings">设置</string>
+
+    <string name="menu_tasks_filter">过滤</string>
+    <string name="menu_tasks_clear">清除</string>
+    <string name="menu_tasks_refresh">刷新</string>
+
+    <string name="menu_filter_all">全部</string>
+    <string name="menu_filter_active">未完成</string>
+    <string name="menu_filter_completed">已完成</string>
 
     <!-- Edit Task -->
     <string name="title_hint">标题</string>
     <string name="description_hint">在这里添加内容</string>
+    <string name="title_add_task">添加任务</string>
+    <string name="title_edit_task">编辑任务</string>
 </resources>

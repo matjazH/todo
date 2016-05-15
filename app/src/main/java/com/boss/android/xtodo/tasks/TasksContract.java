@@ -1,5 +1,6 @@
 package com.boss.android.xtodo.tasks;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.boss.android.xtodo.base.BasePresenter;
@@ -31,6 +32,8 @@ public interface TasksContract {
 
         void showEditTask(Task task);
 
+        void showFilteringPopUpMenu();
+
         void showTaskMarkedComplete();
 
         void showTaskMarkedActivate();
@@ -52,5 +55,9 @@ public interface TasksContract {
         void clearCompletedTasks();
 
         void loadTasks(boolean forceUpdate);
+
+        TasksFilterType getFiltering();
+
+        void setFiltering(TasksFilterType filterType);
     }
 }
